@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="content post">
+    <h1>{{ post.title }}</h1>
+    {% if post.type == 'post' %}
+        <div class="post-date"><time>{{ post.posted | date:"Y-m-d" }}</time></div>
+    {% endif %}
+    <div class="column col-8">{{ post.body }}</div>
+</div>
+{% endblock %}

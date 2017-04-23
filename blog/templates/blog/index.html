@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if posts %}
+{% for post in posts %}
+
+<div class="list-item">
+    <h2 class="list-post-title">
+        <a href="/{{ post.slug }}.html">{{ post.title }}</a>
+
+    </h2>
+    <div class="list-post-date">
+        <time>{{ post.posted | date:"d b Y"}}</time>
+    </div>
+    <div class="list-post-body">
+        {{ post.body | truncatewords:50 }}
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<p>There are no posts.</p>
+{% endif %}
+
+{% endblock %}
